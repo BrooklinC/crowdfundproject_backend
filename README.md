@@ -36,7 +36,6 @@ The Golden Goose is a crowdfunding platform designed specifically to support fut
 - **Project Listing Page:**
     - Displays a 
     - Allows users to 
-
 - **User Registration/Login:**
     - Allows users to sign up using email address
     - Provides login functionality for returning users
