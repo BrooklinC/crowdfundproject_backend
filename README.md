@@ -1,9 +1,7 @@
 # crowdfundproject_backend
-## `README.md` Template Phase 1: API Plan
 
-```markdown
 # Project Title
-The Golden Goose
+__The Golden Goose__
 
 ## Planning:
 ### Concept/Name
