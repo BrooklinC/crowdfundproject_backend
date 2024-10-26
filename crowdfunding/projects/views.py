@@ -66,6 +66,18 @@ class ProjectDetail(APIView):
             serializer.errors,
             status=status.HTTP_400_BAD_REQUEST
         )
+    
+    def delete(self, request, pk):
+        try:
+            project = Project.objects.get(pk=pk)
+        except Project.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        
+        if request.user != project.owner and not request.user.is_staff:
+            return Response({'detail': 'Not authorised to delete this project.'}, status=status.HTTP_403_FORBIDDEN)
+
+        project.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 class PledgeList(APIView):
 
@@ -77,7 +89,7 @@ class PledgeList(APIView):
     def post(self, request):
         serializer = PledgeSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
+            serializer.save(supporter=request.user)
             return Response(
                 serializer.data,
                 status=status.HTTP_201_CREATED
@@ -89,6 +101,11 @@ class PledgeList(APIView):
 
 class PledgeDetail(APIView):  
 
+    def get(self, request, pk):
+        pledges = Pledge.objects.filter(supporter=pk)
+        serializer = PledgeSerializer(pledges, many=True)
+        return Response(serializer.data)
+    
     def put(self, request, pk):
         project = self.get_object(pk)
         serializer = PledgeSerializer(

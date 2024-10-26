@@ -70,7 +70,9 @@ class CustomUserDetail(APIView):
             return Response({'detail': 'Not authorised to delete this user.'}, status=status.HTTP_403_FORBIDDEN)
         
         user.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        print('here')
+        return Response({'detail': 'User has been deleted.'}, status=status.HTTP_204_NO_CONTENT)
+
 
 class CustomAuthToken(ObtainAuthToken):
     def post(self, request, *args, **kwargs):
