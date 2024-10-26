@@ -47,22 +47,22 @@ The Golden Goose is a crowdfunding platform designed specifically to support fut
 | ---| ----------- | ------- | ------- | ------------ | --------------------- | ---------------------------- |
 | http://127.0.0.1:8000/users/ | POST | Register a New User | {"username", "email", "password"} | 201 | N/A | PASS |
 | http://127.0.0.1:8000/users/     | GET | Retrieve a list of users  | N/A  | 200 | Authenticated Admin | PASS |
-| http://127.0.0.1:8000/users/<pk>/     | GET  | Retrieve user profile by ID  | N/A | 200 | Authenticated User or Admin | PASS |
-| http://127.0.0.1:8000/users/<pk>/ | PUT | Update user profile by ID | {"username", "email", "first_name", "last_name"} | 200 | Authenticated User or Admin | PASS |
-| http://127.0.0.1:8000/users/<pk>/ | DELETE | Delete user account by ID  | N/A | 204 | Authenticated User | PASS |
+| http://127.0.0.1:8000/users/:id/     | GET  | Retrieve user profile by ID  | N/A | 200 | Authenticated User or Admin | PASS |
+| http://127.0.0.1:8000/users/:id/ | PUT | Update user profile by ID | {"username", "email", "first_name", "last_name"} | 200 | Authenticated User or Admin | PASS |
+| http://127.0.0.1:8000/users/:id/ | DELETE | Delete user account by ID  | N/A | 204 | Authenticated User | PASS |
 | http://127.0.0.1:8000/projects/    | GET | Returns all athlete projects  | N/A | 200 | Authenticated Admin | PASS |
 | http://127.0.0.1:8000/projects/    | POST | Submit a Project for approval  | {"title", "description", "goal", "image"} | 201 | Authenticated User(Project_Owner) | PASS |
-| http://127.0.0.1:8000/projects/<pk>/    | GET | Returns a specific project  | N/A | 200 | Authenticated User(Project_Owner or Admin) | PASS |
-| http://127.0.0.1:8000/projects/<pk>/    | PUT | Edit/update Project   | {"title", "description", "image"}  | 200 | Authenticated User(Project_Owner or Admin) | PASS |
-| http://127.0.0.1:8000/projects/<pk>/    | PUT | Edit/update Project   | {"goal"}  | 200 | Authenticated Admin | PASS |
-| http://127.0.0.1:8000/projects/<pk>/    | DELETE | Delete specific Project | N/A | 204 | Authenticated Admin | PASS |
+| http://127.0.0.1:8000/projects/:id/    | GET | Returns a specific project  | N/A | 200 | Authenticated User(Project_Owner or Admin) | PASS |
+| http://127.0.0.1:8000/projects/:id/    | PUT | Edit/update Project   | {"title", "description", "image"}  | 200 | Authenticated User(Project_Owner or Admin) | PASS |
+| http://127.0.0.1:8000/projects/:id/    | PUT | Edit/update Project   | {"goal"}  | 200 | Authenticated Admin | PASS |
+| http://127.0.0.1:8000/projects/:id/    | DELETE | Delete specific Project | N/A | 204 | Authenticated Admin | PASS |
 | http://127.0.0.1:8000/pledges/    | GET | Retrieve all Pledges for a Project | N/A  | 200 | Authenticated User(Project_Owner or Admin) | PASS |
-| http://127.0.0.1:8000/pledges/<pk>/    | POST | Make a Pledge to a Project | {"amount", "anonymous"}   | 201 | Authenticated User | PASS |
-| http://127.0.0.1:8000/pledges/<pk>/    | GET | Retrieve details of a specific pledge | N/A  | 200 | Authenticated User(Project_Owner or Admin) | PASS  |
-| http://127.0.0.1:8000/pledges/<pk>/    | PUT | Update a pledge e.g. change amount | {"amount", "anonymous"}   | 200 | Authenticated User | PASS |
-| http://127.0.0.1:8000/pledges/<pk>/    | DELETE | Delete a pledge | N/A | 204 | Authenticated Admin | PASS  |
-| http://127.0.0.1:8000/users/<pk>/pledges/    | GET | Retrieve all pledges made by a user | N/A | 200 |  Authenticated User(Project_Owner or Admin) | PASS |
-| http://127.0.0.1:8000/pledges/<pk>/ | GET | Filters and provides a list of Pledges who have contributed a certain amount | N/A | 200 | Authenticated User(Project_Owner or Admin) | PASS |
+| http://127.0.0.1:8000/pledges/:id/    | POST | Make a Pledge to a Project | {"amount", "anonymous"}   | 201 | Authenticated User | PASS |
+| http://127.0.0.1:8000/pledges/:id/    | GET | Retrieve details of a specific pledge | N/A  | 200 | Authenticated User(Project_Owner or Admin) | PASS  |
+| http://127.0.0.1:8000/pledges/:id/    | PUT | Update a pledge e.g. change amount | {"amount", "anonymous"}   | 200 | Authenticated User | PASS |
+| http://127.0.0.1:8000/pledges/:id/    | DELETE | Delete a pledge | N/A | 204 | Authenticated Admin | PASS  |
+| http://127.0.0.1:8000/users/:id/pledges/    | GET | Retrieve all pledges made by a user | N/A | 200 |  Authenticated User(Project_Owner or Admin) | PASS |
+| http://127.0.0.1:8000/pledges/:id/ | GET | Filters and provides a list of Pledges who have contributed a certain amount | N/A | 200 | Authenticated User(Project_Owner or Admin) | PASS |
 
 ### DB Schema
 ![]( {{ ./relative/path/to/your/schema/image.png }} )
