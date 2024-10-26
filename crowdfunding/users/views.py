@@ -9,6 +9,7 @@ from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from .models import CustomUser
 from .serializers import CustomUserSerializer
+from .permissions import IsAuthenticatedOwnerorUser
 
 class CustomUserList(APIView):
     def get(self, request):
@@ -28,7 +29,11 @@ class CustomUserList(APIView):
             serializer.errors,
             status=status.HTTP_400_BAD_REQUEST
         )
+
 class CustomUserDetail(APIView):
+
+    permission_classes = [IsAuthenticatedOwnerorUser]
+
     def get_object(self, pk):
         try:
             return CustomUser.objects.get(pk=pk)
@@ -39,6 +44,33 @@ class CustomUserDetail(APIView):
         user = self.get_object(pk)
         serializer = CustomUserSerializer(user)
         return Response(serializer.data)
+
+    def put(self, request, pk):
+        try:
+            user = CustomUser.objects.get(pk=pk)
+        except CustomUser.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        
+        if request.user != user and not request.user.is_staff:
+            return Response({'detail': 'Not authorised to update this user.'}, status=status.HTTP_403_FORBIDDEN)
+        
+        serializer = CustomUserSerializer(user, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def delete(self, request, pk):
+        try:
+            user = CustomUser.objects.get(pk=pk)
+        except CustomUser.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        
+        if request.user != user and not request.user.is_staff:
+            return Response({'detail': 'Not authorised to delete this user.'}, status=status.HTTP_403_FORBIDDEN)
+        
+        user.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 class CustomAuthToken(ObtainAuthToken):
     def post(self, request, *args, **kwargs):
@@ -55,3 +87,4 @@ class CustomAuthToken(ObtainAuthToken):
             'user_id': user.id,
             'email': user.email
         })
+     
