@@ -72,13 +72,13 @@ Screenshot below but can also be referenced within ERD.drawio file
 ![Screenshot of DB Schema](https://github.com/BrooklinC/crowdfundproject_backend/blob/main/img/DB_SCHEMA.png)
 
 ### Screenshots of HTTP Requests
-Local Screenshot of GET Request
-![Screenshot of Local Get Request](https://github.com/BrooklinC/crowdfundproject_backend/blob/main/img/GET_REQUEST_LOCAL.png)
+Screenshot of GET Request on Local
+![Screenshot of Local Get Request](https://github.com/BrooklinC/crowdfundproject_backend/blob/main/img/GET_Request_LOCAL.png)
 
-Local Screenshot of POST Request
-![Screenshot of DB Schema](https://github.com/BrooklinC/crowdfundproject_backend/blob/main/img/POST_REQUEST_LOCAL.png)
+Screenshot of POST Request on Local
+![Screenshot of DB Schema](https://github.com/BrooklinC/crowdfundproject_backend/blob/main/img/POST_Request_LOCAL.png)
 
-Local Screenshot of Token Auth Request
+Screenshot of Token Auth Request on Local
 ![Screenshot of DB Schema](https://github.com/BrooklinC/crowdfundproject_backend/blob/main/img/TOKEN_LOCAL.png)
 
 ### Step-by-Step Instructions to Register a User
