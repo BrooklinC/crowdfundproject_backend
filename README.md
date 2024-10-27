@@ -68,7 +68,8 @@ https://git.heroku.com/golden-goose-01.git
 | http://127.0.0.1:8000/pledges/:id/ | GET | Filters and provides a list of Pledges who have contributed a certain amount | N/A | 200 | Authenticated User(Project_Owner or Admin) | PASS |
 
 ### DB Schema
-![Screenshot of DB Schema](crowdfunding/img/DB_SCHEMA.PNG)
+![Screenshot of DB Schema](https://github.com/BrooklinC/crowdfundproject_backend/blob/main/img/DB_SCHEMA.png)
+Also can be referenced within ERD.drawio file
 
 ### Step-by-Step Instructions to Register a User
 ### 1. Register a New User
