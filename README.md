@@ -5,7 +5,7 @@ __The Golden Goose__
 
 ## Planning:
 ### Concept/Name
-The Golden Goose is a crowdfunding platform designed specifically to support future Olympians and Paralympians by helping them fund their training, equipment and competition expenses.
+The Golden Goose is a crowdfunding platform designed specifically to support future Olympians and Paralympians by helping them fund their training, equipment and competition expenses. It allows athletes that otherwise may not receive funding or corporate sponsorships 
 
 ### Intended Audience/User Stories
 **Intended Audience:**
@@ -68,8 +68,8 @@ https://git.heroku.com/golden-goose-01.git
 | http://127.0.0.1:8000/pledges/:id/ | GET | Filters and provides a list of Pledges who have contributed a certain amount | N/A | 200 | Authenticated User(Project_Owner or Admin) | PASS |
 
 ### DB Schema
+Screenshot below but can also be referenced within ERD.drawio file
 ![Screenshot of DB Schema](https://github.com/BrooklinC/crowdfundproject_backend/blob/main/img/DB_SCHEMA.png)
-Also can be referenced within ERD.drawio file
 
 ### Step-by-Step Instructions to Register a User
 ### 1. Register a New User
