@@ -15,7 +15,7 @@ The Golden Goose is a crowdfunding platform designed specifically to support fut
 **Pledges:** People interested in supporting individual athletes directly and transparently.
 
 **User Stories:**
-*As an Athete Creator*, I want to be able to setup my project with my profile, goals and funding needs to feature on The Golden Goose and elicit potential pledgers. 
+*As an Athlete Creator*, I want to be able to setup my project with my profile, goals and funding needs to feature on The Golden Goose and elicit potential pledgers. 
 
 *As a Pledger*, I want to browse a curated or filtered list of Athletes to be able to find and support Athletes either in sports or with stories that interest me. 
 
@@ -68,7 +68,7 @@ https://git.heroku.com/golden-goose-01.git
 | http://127.0.0.1:8000/pledges/:id/ | GET | Filters and provides a list of Pledges who have contributed a certain amount | N/A | 200 | Authenticated User(Project_Owner or Admin) | PASS |
 
 ### DB Schema
-![]( {{ ./relative/path/to/your/schema/image.png }} )
+![Screenshot of DB Schema](crowdfunding/img/DB_SCHEMA.PNG)
 
 ### Step-by-Step Instructions to Register a User
 ### 1. Register a New User
